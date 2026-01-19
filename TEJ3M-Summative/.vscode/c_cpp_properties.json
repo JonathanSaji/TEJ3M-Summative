@@ -10,7 +10,9 @@
         "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\cores\\arduino\\api\\deprecated-avr-comp/**",
         "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\cores\\arduino/**",
         "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\variants\\UNOWIFIR4/**",
-        "C:\\Users\\Jonathan\\Documents\\Arduino\\libraries\\Pitches/**"
+        "C:\\Users\\Jonathan\\Documents\\Arduino\\libraries\\Pitches/**",
+        "C:\\Users\\Jonathan\\Documents\\Arduino\\libraries\\LiquidCrystal_I2C/**",
+        "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\libraries\\Wire/**"
       ],
       "forcedInclude": [
         "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\cores\\arduino\\Arduino.h"
@@ -57,6 +59,8 @@
         "-IC:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\cores\\arduino",
         "-IC:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\variants\\UNOWIFIR4",
         "-IC:\\Users\\Jonathan\\Documents\\Arduino\\libraries\\Pitches",
+        "-IC:\\Users\\Jonathan\\Documents\\Arduino\\libraries\\LiquidCrystal_I2C",
+        "-IC:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\libraries\\Wire",
         "-iprefixC:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2",
         "@C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\renesas_uno\\1.5.2\\variants\\UNOWIFIR4/includes.txt",
         "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\build\\sketch\\TEJ3M-Summative.ino.cpp",

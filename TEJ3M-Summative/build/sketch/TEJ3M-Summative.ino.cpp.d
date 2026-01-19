@@ -86,4 +86,41 @@ C:\Users\Jonathan\Documents\TEJ3M-Summative\TEJ3M-Summative\build\sketch\TEJ3M-S
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/api/deprecated-avr-comp/avr/dtostrf.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\variants\UNOWIFIR4/pins_arduino.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/usb/USB.h \
- C:\Users\Jonathan\Documents\Arduino\libraries\Pitches/pitches.h
+ C:\Users\Jonathan\Documents\Arduino\libraries\Pitches/pitches.h \
+ C:\Users\Jonathan\Documents\Arduino\libraries\LiquidCrystal_I2C/LiquidCrystal_I2C.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/api/deprecated/Print.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\libraries\Wire/Wire.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/IRQManager.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/analog.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_adc_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_elc_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_adc.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_adc_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_dac.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_dac_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_dac_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\variants\UNOWIFIR4/elc_defines.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_timer_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_dmac.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_transfer_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_gpt.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_agt.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_agt_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_rtc_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_rtc.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_rtc_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_i2c_slave_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_i2c_master_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_iic_master.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_iic_master_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_iic_slave.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_iic_slave_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_spi.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_spi_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_sci_spi.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_can.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_can_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/api/r_can_api.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/api/HardwareI2C.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_sci_i2c.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_sci_i2c_cfg.h
