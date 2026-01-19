@@ -62,7 +62,6 @@ void setup() {
 }   
 
 void loop() {
-
     unsigned long currentTime = millis();
   
   // Check if it's time to show the next message
@@ -105,21 +104,51 @@ void loop() {
     if (currentNote < songLength) {
         if (!noteActive) {
             // Start new note
+            switch(melody[currentNote]){
+                case NOTE_C4:
+                case NOTE_C5:
+                    digitalWrite(led1,LOW);
+                    break;
+                case NOTE_D4:
+                    digitalWrite(led2,LOW);
+                    break;
+                case NOTE_F4:
+                    digitalWrite(led3,LOW);
+                    break;
+                case NOTE_G4:
+                case NOTE_E4:
+                    digitalWrite(led4,LOW);
+                    break;
+                case NOTE_A4:
+                case NOTE_AS4:
+                    digitalWrite(led5,LOW);
+                    break;
+                default:
+                    break;
+            }
             tone(buzzer, melody[currentNote]);
             noteEndTime = currentTime + (signature / noteDurations[currentNote]);
             noteActive = true;
         }
         else if (currentTime >= noteEndTime) {
             // Note time is done
+            digitalWrite(led1,HIGH);
+            digitalWrite(led2,HIGH);
+            digitalWrite(led3,HIGH);
+            digitalWrite(led4,HIGH);
+            digitalWrite(led5,HIGH);
+            delay(10); //short delay to allow LED to be visible
             noTone(buzzer);
             currentNote++;
             noteActive = false;
+            
         }
     }
     else{
         delay(1000); //wait a second before restarting
         lcd.clear();
     }
+
 
 }
 
