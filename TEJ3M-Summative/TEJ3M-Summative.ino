@@ -3,7 +3,7 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-//intialize variables
+//Buzzer and Speaker Pins (NORMAL LOGIC)
 int buzzer = 7;
 int speaker = 8;
 
@@ -140,9 +140,9 @@ void loop() {
         if (currentMicros - lastBuzzerToggle >= buzzerHalfPeriod) {
             buzzerState = !buzzerState;
             digitalWrite(buzzer, buzzerState ? HIGH : LOW);
-           // digitalWrite(speaker, buzzerState ? HIGH : LOW);
+            digitalWrite(speaker, buzzerState ? HIGH : LOW);
           
-            lastBuzzerToggle = currentMicros + 1;
+            lastBuzzerToggle = currentMicros;
         }
         
         if (currentTime >= noteEndTime) {
