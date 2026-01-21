@@ -5,7 +5,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Buzzer pins
 int melodyBuzzer = 7;
-int bassBuzzer = 8;
+int bassBuzzer = 9;
 
 // LED pins (active low)
 int ledBlue = 6;
@@ -68,9 +68,9 @@ int noteDurationSignature = 1500;
 void setup() {
     Serial.begin(9600);
 
-    for (int i = 2; i <= 8; i++) {
+    for (int i = 2; i <= 9; i++) {
         pinMode(i, OUTPUT);
-        if (i != 7 && i != 8) {
+        if (i != 7 && i != 9) {
             digitalWrite(i, HIGH);
         }
     }

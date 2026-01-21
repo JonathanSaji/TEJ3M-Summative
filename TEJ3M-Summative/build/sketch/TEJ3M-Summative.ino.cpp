@@ -7,7 +7,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Buzzer pins
 int melodyBuzzer = 7;
-int bassBuzzer = 8;
+int bassBuzzer = 9;
 
 // LED pins (active low)
 int ledBlue = 6;
@@ -67,21 +67,12 @@ int bassNotes[songLength] = {REST,REST,NOTE_F4,REST,REST,NOTE_C4,REST,REST,NOTE_
 
 
 int noteDurationSignature = 1500;
-#line 68 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
-void setup();
-#line 84 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
-void loop();
-#line 202 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
-void playMelody(long halfPeriod, int buzzerPin);
-#line 211 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
-void playBass(long halfPeriod, int buzzerPin);
-#line 68 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setup() {
     Serial.begin(9600);
 
-    for (int i = 2; i <= 8; i++) {
+    for (int i = 2; i <= 9; i++) {
         pinMode(i, OUTPUT);
-        if (i != 7 && i != 8) {
+        if (i != 7 && i != 9) {
             digitalWrite(i, HIGH);
         }
     }
