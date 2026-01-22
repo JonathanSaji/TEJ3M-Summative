@@ -255,14 +255,14 @@ void setVariablesToPlay(const int length, const int melodyArray[], const int mel
                         const int lyricDurArray[]) {
     for(int i = 0; i < lyricCount; i++) {
                 lyrics[i] = lyricArray[i];
-                lyricsDisplayDuration[i] = pgm_read_int(&lyricDurArray[i]);
+                lyricsDisplayDuration[i] = pgm_read_words(&lyricDurArray[i]);
             }
     
     for (int i = 0; i < length; i++) {
-                melodyNotes[i] = pgm_read_int(&melodyArray[i]);
-                melodyDurations[i] = pgm_read_int(&melodyDurArray[i]);
-                bassNotes[i] = pgm_read_int(&bassArray[i]);
-                bassDurations[i] = pgm_read_int(&bassDurArray[i]);
+                melodyNotes[i] = pgm_read_word(&melodyArray[i]);
+                melodyDurations[i] = pgm_read_word(&melodyDurArray[i]);
+                bassNotes[i] = pgm_read_word(&bassArray[i]);
+                bassDurations[i] = pgm_read_word(&bassDurArray[i]);
             }
             songLength = length;
             playMusic = true;

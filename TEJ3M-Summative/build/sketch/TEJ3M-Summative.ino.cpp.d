@@ -124,4 +124,5 @@ C:\Users\Jonathan\Documents\TEJ3M-Summative\TEJ3M-Summative\build\sketch\TEJ3M-S
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/api/HardwareI2C.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra/fsp/inc/instances/r_sci_i2c.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2/variants/UNOWIFIR4/includes/ra_cfg/fsp_cfg/r_sci_i2c_cfg.h \
+ C:\Users\Jonathan\AppData\Local\Arduino15\packages\arduino\hardware\renesas_uno\1.5.2\cores\arduino/api/deprecated-avr-comp/avr/pgmspace.h \
  C:\Users\Jonathan\Documents\TEJ3M-Summative\TEJ3M-Summative\build\sketch\songs.h
