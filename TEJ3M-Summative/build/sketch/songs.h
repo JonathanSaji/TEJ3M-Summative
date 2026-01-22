@@ -5,29 +5,33 @@
 //HAPPY BIRTHDAY SONG DATA
 const int happyBirthdayLength = 25;
 
-const int happyBirthdayMelody[25] = {NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4,
+const int happyBirthdayMelody[25] PROGMEM = {NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4,
                                NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_G4, NOTE_F4,
                                NOTE_C4, NOTE_C4, NOTE_C5, NOTE_A4, NOTE_F4, NOTE_E4, NOTE_D4,
                                NOTE_AS4, NOTE_AS4, NOTE_A4, NOTE_F4, NOTE_G4, NOTE_F4};
 
-const int happyBirthdayDurations[25] = {3, 4, 2, 2, 2, 1, 3, 4, 2, 2, 2, 1, 3, 4, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 1};
+const int happyBirthdayDurations[25] PROGMEM = {3, 4, 2, 2, 2, 1, 3, 4, 2, 2, 2, 1, 3, 4, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 1};
 
-const int happyBirthdayBassDurations[25] = {4, 4, 4, 4, 4, 4, 4, 4, 4,
+const int happyBirthdayBassDurations[25] PROGMEM = {4, 4, 4, 4, 4, 4, 4, 4, 4,
                                       4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
                                       4, 4, 4, 4, 4};
 
-const int happyBirthdaybassNotes[25] = {REST, REST, NOTE_F4, REST, REST, NOTE_C4, REST, REST, NOTE_C3, REST,
+const int happyBirthdaybassNotes[25] PROGMEM = {REST, REST, NOTE_F4, REST, REST, NOTE_C4, REST, REST, NOTE_C3, REST,
                                   REST, NOTE_F4, REST, REST, NOTE_F4, REST, REST, NOTE_AS4, REST, REST,
                                   REST, NOTE_F4, REST, NOTE_C4, NOTE_F4};
 
 const int happybirthdayNoteDurationSignature = 1500;
+
+const int HBDlyricsCount = 8;
+const String HBDlyrics [HBDlyricsCount] = {"Happy Birthday", "To You", "Happy Birthday", "To You", "Happy Birthday", "Dear JAYDEN", "Happy Birthday", "To You!"};
+const int happybirthdayLyricsDuration[HBDlyricsCount] PROGMEM = {1000,1000,1000,1000,1500,1000,1000,1500};
 // END HAPPY BIRTHDAY SONG DATA
 
 
 // NEVER GONNA GIVE YOU UP SONG DATA
 // Melody for "Never Gonna Give You Up" --CREATED BY AI--
-const int GiveYouUpLength = 200;
-const int GiveYouUpNotes[] = {
+const int GiveYouUpLength = 255;
+const int GiveYouUpNotes[] PROGMEM = {
   NOTE_D5, NOTE_E5, NOTE_A4, NOTE_E5, NOTE_FS5, NOTE_A5, NOTE_G5, NOTE_FS5,
   NOTE_D5, NOTE_E5, NOTE_A4, NOTE_A4, NOTE_A4, NOTE_B4, NOTE_D5, NOTE_D5,
   NOTE_D5, NOTE_E5, NOTE_A4, NOTE_E5, NOTE_FS5, NOTE_A5, NOTE_G5, NOTE_FS5,
@@ -55,12 +59,15 @@ const int GiveYouUpNotes[] = {
   NOTE_D5, NOTE_E5, NOTE_CS5, NOTE_B4, NOTE_A4, NOTE_A4, NOTE_E5, NOTE_D5, REST
 };
 
-const int GiveYouUpNoteDurationSignature = 2000;
-
+const int GiveYouUpNoteDurationSignature = 2500;
+const int GiveYouUpLyricsCount = 16;
+const String GiveYouUpLyrics[GiveYouUpLyricsCount] = {"WAIT", "We're no", "strangers", "to love", "You know the", "rules", "and so do I", "A full", "commitment's", "what I'm", 
+                                                    "thinking of","You wouldn't", "Say Goodbye", "Never Gonna", "Tell A Lie", "And Hurt You"};
+const int GiveYouUpLyricsDuration[GiveYouUpLyricsCount] PROGMEM = {15000,500,500,500,500,500,500,1000,500,500,500,500,500,500,500,500};
 // Bass line for new song - complements "Never Gonna Give You Up"
 
 //Given by AI
-const int GiveYouUpBassNotes[] = {
+const int GiveYouUpBassNotes[] PROGMEM = {
   NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
   NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2, NOTE_A2,
   NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3,
@@ -88,7 +95,7 @@ const int GiveYouUpBassNotes[] = {
   NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, NOTE_E3, NOTE_A2, NOTE_A2, REST
 };
 
-const int GiveYouUpBassDurations[] = {
+const int GiveYouUpBassDurations[] PROGMEM = {
   4, 4, 4, 4, 4, 4, 4, 4,
   4, 4, 2, 16, 16, 16, 8, 16,
   4, 4, 4, 4, 4, 4, 4, 4,
@@ -118,7 +125,7 @@ const int GiveYouUpBassDurations[] = {
 };
 
 // New song durations array --CREATED BY AI--
-const int GiveYouUpDurations[] = {
+const int GiveYouUpDurations[] PROGMEM = {
   4, 4, 4, 4, 4, 16, 16, 8,
   4, 4, 2, 16, 16, 16, 8, 16,
   4, 4, 4, 4, 4, 16, 16, 8,

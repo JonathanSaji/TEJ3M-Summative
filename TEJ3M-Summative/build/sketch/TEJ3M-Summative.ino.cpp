@@ -2,9 +2,14 @@
 #line 1 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 #include <pitches.h>
 #include <LiquidCrystal_I2C.h>
+#include <avr/pgmspace.h>
 #include "songs.h"
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+//Time
+unsigned long currentTime;
+
 
 // Buzzer pins
 const int melodyBuzzer = 7;
@@ -18,7 +23,6 @@ const int ledGreen = 3;
 const int ledWhite = 2;
 
 // LCD lyrics timing
-const int HBDlyricsCount = 8;
 int lyricsCount = 0; // To be set when loading a song
 int lyricsIndex = 0;
 unsigned long lastLyricsChangeTime = 0;
@@ -51,34 +55,33 @@ long currentBassMicrosTime = 0;
 int lastActiveLED = -1;
 bool playMusic = false;
 
-String lyrics[250] = {"PAUSE"};
-String HBDlyrics [HBDlyricsCount] = {"Happy Birthday", "To You", "Happy Birthday", "To You", "Happy Birthday", "Dear JAYDEN", "Happy Birthday", "To You!"};
-int happybirthdayLyricsDuration[HBDlyricsCount] = {2000, 1500, 2000, 1500, 2000, 2500, 2000, 3000};
+String lyrics[260] = {"PAUSE"};
+
 int songLength = 0;
 
 
 
 // Default empty arrays
-int melodyNotes[250] = {REST};
-int melodyDurations[250] = {REST};
-int bassDurations[250] = {REST};
-int bassNotes[250] = {REST};
+int melodyNotes[260] = {REST};
+int melodyDurations[260] = {REST};
+int bassDurations[260] = {REST};
+int bassNotes[260] = {REST};
 
 int noteDurationSignature = 0;
 
-#line 67 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 70 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setup();
-#line 84 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 87 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void loop();
-#line 254 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 231 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playMelody(long halfPeriod, int buzzerPin);
-#line 262 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 239 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playBass(long halfPeriod, int buzzerPin);
-#line 271 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 248 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playMenu();
-#line 276 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
-void setVariablesToPlay();
-#line 67 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 253 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+void setVariablesToPlay(const int length, const int melodyArray[], const int melodyDurArray[], const int bassArray[], const int bassDurArray[], const int durationSignature, const int lyricCount, const String lyricArray[], const int lyricDurArray[]);
+#line 70 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setup() {
     Serial.begin(9600);
 
@@ -97,7 +100,7 @@ void setup() {
 }
 
 void loop() {
-    unsigned long currentTime = millis();
+    currentTime = millis();
 
     // Check for serial input - read entire line until newline
     if (Serial.available() > 0) {
@@ -105,41 +108,15 @@ void loop() {
         input.trim(); // Remove any whitespace
         
         if (input == "1") {
-            for (int i = 0; i < happyBirthdayLength; i++) {
-                melodyNotes[i] = happyBirthdayMelody[i];
-                melodyDurations[i] = happyBirthdayDurations[i];
-                bassNotes[i] = happyBirthdaybassNotes[i];
-                bassDurations[i] = happyBirthdayBassDurations[i];
-            }
-            for(int i = 0; i < HBDlyricsCount; i++) {
-                lyrics[i] = HBDlyrics[i];
-                lyricsDisplayDuration[i] = happybirthdayLyricsDuration[i];
-            }
-            songLength = happyBirthdayLength;
-            playMusic = true;
-            lyricsIndex = 0;
-            lastLyricsChangeTime = currentTime;
-            lyricsDisplayCounter = 0;
-            melodyNoteIndex = 0;
-            bassNoteIndex = 0;
-            noteDurationSignature = happybirthdayNoteDurationSignature;
-            lyricsCount = HBDlyricsCount;
+            setVariablesToPlay(happyBirthdayLength, happyBirthdayMelody, happyBirthdayDurations, happyBirthdaybassNotes, 
+                                happyBirthdayBassDurations, happybirthdayNoteDurationSignature, HBDlyricsCount, HBDlyrics, 
+                                happybirthdayLyricsDuration);
+                                    
         } 
         else if(input == "2") {
-            for (int i = 0; i < GiveYouUpLength; i++) {
-                melodyNotes[i] = GiveYouUpNotes[i];
-                melodyDurations[i] = GiveYouUpDurations[i];
-                bassNotes[i] = GiveYouUpBassNotes[i]; // No bass for this song
-                bassDurations[i] = GiveYouUpBassDurations[i];
-            }
-            songLength = GiveYouUpLength;
-            playMusic = true;
-            lyricsIndex = 0;
-            lastLyricsChangeTime = currentTime;
-            lyricsDisplayCounter = 0;
-            melodyNoteIndex = 0;
-            bassNoteIndex = 0;
-            noteDurationSignature = GiveYouUpNoteDurationSignature;
+            setVariablesToPlay(GiveYouUpLength, GiveYouUpNotes, GiveYouUpDurations, GiveYouUpBassNotes, 
+                                GiveYouUpBassDurations, GiveYouUpNoteDurationSignature, GiveYouUpLyricsCount, GiveYouUpLyrics, 
+                                GiveYouUpLyricsDuration);
         }
         else {
             lcd.clear();
@@ -288,8 +265,29 @@ void playMenu() {
     lcd.print("1 = HBD 2 = NS");
 }
 
-void setVariablesToPlay(){
-
+void setVariablesToPlay(const int length, const int melodyArray[], const int melodyDurArray[], const int bassArray[], 
+                        const int bassDurArray[], const int durationSignature, const int lyricCount, const String lyricArray[], 
+                        const int lyricDurArray[]) {
+    for(int i = 0; i < lyricCount; i++) {
+                lyrics[i] = lyricArray[i];
+                lyricsDisplayDuration[i] = pgm_read_int(&lyricDurArray[i]);
+            }
+    
+    for (int i = 0; i < length; i++) {
+                melodyNotes[i] = pgm_read_int(&melodyArray[i]);
+                melodyDurations[i] = pgm_read_int(&melodyDurArray[i]);
+                bassNotes[i] = pgm_read_int(&bassArray[i]);
+                bassDurations[i] = pgm_read_int(&bassDurArray[i]);
+            }
+            songLength = length;
+            playMusic = true;
+            lastLyricsChangeTime = currentTime;
+            noteDurationSignature = durationSignature;
+            lyricsCount = lyricCount;
+            lyricsDisplayCounter = 0;
+            melodyNoteIndex = 0;
+            bassNoteIndex = 0;
+            lyricsIndex = 0;
 }
 
 /*
