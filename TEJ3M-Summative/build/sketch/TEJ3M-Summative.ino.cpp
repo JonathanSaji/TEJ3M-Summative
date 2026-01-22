@@ -70,13 +70,13 @@ int noteDurationSignature = 0;
 void setup();
 #line 84 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void loop();
-#line 254 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 256 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playMelody(long halfPeriod, int buzzerPin);
-#line 262 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 264 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playBass(long halfPeriod, int buzzerPin);
-#line 271 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 273 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playMenu();
-#line 276 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 278 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setVariablesToPlay();
 #line 67 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setup() {
@@ -129,8 +129,10 @@ void loop() {
             for (int i = 0; i < GiveYouUpLength; i++) {
                 melodyNotes[i] = GiveYouUpNotes[i];
                 melodyDurations[i] = GiveYouUpDurations[i];
-                bassNotes[i] = GiveYouUpBassNotes[i]; // No bass for this song
-                bassDurations[i] = GiveYouUpBassDurations[i];
+                //bassNotes[i] = GiveYouUpBassNotes[i]; // No bass for this song
+                //bassDurations[i] = GiveYouUpBassDurations[i];
+                bassNotes[i] = REST;
+                bassDurations[i] = REST;    
             }
             songLength = GiveYouUpLength;
             playMusic = true;
