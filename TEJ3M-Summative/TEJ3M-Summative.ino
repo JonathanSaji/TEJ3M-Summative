@@ -1,24 +1,26 @@
 #include <pitches.h>
 #include <LiquidCrystal_I2C.h>
+#include "songs.h"
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Buzzer pins
-int melodyBuzzer = 7;
-int bassBuzzer = 9;
+const int melodyBuzzer = 7;
+const int bassBuzzer = 9;
 
 // LED pins (active low)
-int ledBlue = 6;
-int ledYellow = 5;
-int ledRed = 4;
-int ledGreen = 3;
-int ledWhite = 2;
+const int ledBlue = 6;
+const int ledYellow = 5;
+const int ledRed = 4;
+const int ledGreen = 3;
+const int ledWhite = 2;
 
 // LCD lyrics timing
-const int lyricsCount = 8;
+const int HBDlyricsCount = 8;
+int lyricsCount = 0; // To be set when loading a song
 int lyricsIndex = 0;
 unsigned long lastLyricsChangeTime = 0;
-int lyricsDisplayDuration[] = {1000, 1000, 1000, 1000, 1500, 1000, 1000, 1500}; // milliseconds
+int lyricsDisplayDuration[100] = {0}; // milliseconds
 int lyricsDisplayCounter = 0;
 int currentDisplayInterval = lyricsDisplayDuration[0];
 int lyricsRow = 1;
@@ -47,33 +49,20 @@ long currentBassMicrosTime = 0;
 int lastActiveLED = -1;
 bool playMusic = false;
 
-String lyrics[lyricsCount] = {"Happy Birthday", "To You", "Happy Birthday", "To You", "Happy Birthday", "Dear JAYDEN", "Happy Birthday", "To You!"};
+String lyrics[250] = {"PAUSE"};
+String HBDlyrics [HBDlyricsCount] = {"Happy Birthday", "To You", "Happy Birthday", "To You", "Happy Birthday", "Dear JAYDEN", "Happy Birthday", "To You!"};
+int happybirthdayLyricsDuration[HBDlyricsCount] = {2000, 1500, 2000, 1500, 2000, 2500, 2000, 3000};
 int songLength = 0;
-const int happyBirthdayLength = 25;
 
-// Happy Birthday Song
-int happyBirthdayMelody[25] = {NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4,
-                               NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_G4, NOTE_F4,
-                               NOTE_C4, NOTE_C4, NOTE_C5, NOTE_A4, NOTE_F4, NOTE_E4, NOTE_D4,
-                               NOTE_AS4, NOTE_AS4, NOTE_A4, NOTE_F4, NOTE_G4, NOTE_F4};
 
-int happyBirthdayDurations[25] = {3, 4, 2, 2, 2, 1, 3, 4, 2, 2, 2, 1, 3, 4, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 1};
-
-int happyBirthdayBassDurations[25] = {4, 4, 4, 4, 4, 4, 4, 4, 4,
-                                      4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-                                      4, 4, 4, 4, 4};
-
-int happyBirthdaybassNotes[25] = {REST, REST, NOTE_F4, REST, REST, NOTE_C4, REST, REST, NOTE_C3, REST,
-                                  REST, NOTE_F4, REST, REST, NOTE_F4, REST, REST, NOTE_AS4, REST, REST,
-                                  REST, NOTE_F4, REST, NOTE_C4, NOTE_F4};
 
 // Default empty arrays
-int melodyNotes[50] = {REST};
-int melodyDurations[50] = {REST};
-int bassDurations[50] = {REST};
-int bassNotes[50] = {REST};
+int melodyNotes[250] = {REST};
+int melodyDurations[250] = {REST};
+int bassDurations[250] = {REST};
+int bassNotes[250] = {REST};
 
-int noteDurationSignature = 1500;
+int noteDurationSignature = 0;
 
 void setup() {
     Serial.begin(9600);
@@ -90,7 +79,6 @@ void setup() {
     lcd.backlight();
     lcd.clear();
     playMenu();
-
 }
 
 void loop() {
@@ -108,6 +96,10 @@ void loop() {
                 bassNotes[i] = happyBirthdaybassNotes[i];
                 bassDurations[i] = happyBirthdayBassDurations[i];
             }
+            for(int i = 0; i < HBDlyricsCount; i++) {
+                lyrics[i] = HBDlyrics[i];
+                lyricsDisplayDuration[i] = happybirthdayLyricsDuration[i];
+            }
             songLength = happyBirthdayLength;
             playMusic = true;
             lyricsIndex = 0;
@@ -115,7 +107,26 @@ void loop() {
             lyricsDisplayCounter = 0;
             melodyNoteIndex = 0;
             bassNoteIndex = 0;
-        } else {
+            noteDurationSignature = happybirthdayNoteDurationSignature;
+            lyricsCount = HBDlyricsCount;
+        } 
+        else if(input == "2") {
+            for (int i = 0; i < GiveYouUpLength; i++) {
+                melodyNotes[i] = GiveYouUpNotes[i];
+                melodyDurations[i] = GiveYouUpDurations[i];
+                bassNotes[i] = GiveYouUpBassNotes[i]; // No bass for this song
+                bassDurations[i] = GiveYouUpBassDurations[i];
+            }
+            songLength = GiveYouUpLength;
+            playMusic = true;
+            lyricsIndex = 0;
+            lastLyricsChangeTime = currentTime;
+            lyricsDisplayCounter = 0;
+            melodyNoteIndex = 0;
+            bassNoteIndex = 0;
+            noteDurationSignature = GiveYouUpNoteDurationSignature;
+        }
+        else {
             lcd.clear();
             lcd.print("Invalid Option");
             delay(2000);
@@ -259,7 +270,11 @@ void playBass(long halfPeriod, int buzzerPin) {
 
 void playMenu() {
     lcd.setCursor(0, 0);
-    lcd.print("1=HBD");
+    lcd.print("1 = HBD 2 = NS");
+}
+
+void setVariablesToPlay(){
+
 }
 
 /*
