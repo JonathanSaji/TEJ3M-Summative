@@ -6,7 +6,7 @@
   "board": "arduino:renesas_uno:unor4wifi",
   "programmer": "cmsis-dap",
   "useProgrammer": false,
-  "optimize_for_debug": false,
+  "optimize_for_debug": true,
   "configurationRequired": false,
   "compile_profile": "",
   "monitorPortSettings": {

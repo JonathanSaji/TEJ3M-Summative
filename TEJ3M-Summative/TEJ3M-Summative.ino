@@ -53,19 +53,20 @@ long currentBassMicrosTime = 0;
 int lastActiveLED = -1;
 bool playMusic = false;
 
-String lyrics[260] = {"PAUSE"};
+String lyrics[20] = {"PAUSE"};
 
 int songLength = 0;
 
-
-
 // Default empty arrays
-int melodyNotes[260] = {REST};
-int melodyDurations[260] = {REST};
-int bassDurations[260] = {REST};
-int bassNotes[260] = {REST};
-
+int melodyNotes[50] = {REST};
+int melodyDurations[50] = {REST};
+int bassDurations[50] = {REST};
+int bassNotes[50] = {REST};
 int noteDurationSignature = 0;
+
+//Serial Input
+bool choicemade = false;
+bool choice1made = false;
 
 void setup() {
     Serial.begin(9600);
@@ -88,29 +89,47 @@ void loop() {
     currentTime = millis();
 
     // Check for serial input - read entire line until newline
-    if (Serial.available() > 0) {
+    if (Serial.available() > 0 ) {
         String input = Serial.readStringUntil('\n');
         input.trim(); // Remove any whitespace
         
-        if (input == "1") {
-            setVariablesToPlay(happyBirthdayLength, happyBirthdayMelody, happyBirthdayDurations, happyBirthdaybassNotes, 
+
+        if(choice1made && input != ""){
+        
+                if(input.length() > 11) {
+                    lcd.clear();
+                    lcd.print("Name too long");
+                    delay(2000);
+                    enterName();
+                }
+                else{
+                    HBDlyrics[5] = "Dear " + input;
+                    setVariablesToPlay(happyBirthdayLength, happyBirthdayMelody, happyBirthdayDurations, happyBirthdaybassNotes, 
                                 happyBirthdayBassDurations, happybirthdayNoteDurationSignature, HBDlyricsCount, HBDlyrics, 
                                 happybirthdayLyricsDuration);
-                                    
-        } 
-        else if(input == "2") {
-            setVariablesToPlay(GiveYouUpLength, GiveYouUpNotes, GiveYouUpDurations, GiveYouUpBassNotes, 
-                                GiveYouUpBassDurations, GiveYouUpNoteDurationSignature, GiveYouUpLyricsCount, GiveYouUpLyrics, 
-                                GiveYouUpLyricsDuration);
+                }
         }
-        else {
+        else if (input == "1" && choicemade == false) {
+            choice1made = true; 
+            choicemade = true;
+            enterName();
+            }                       
+        else if(input == "2" && choicemade == false) {
+            setVariablesToPlay(Snlength, Snnotes, SnDurations, SnBassNotes, 
+                                SnBassDurations, SnNoteDurationSignature, SnLyricsCount, SnLyrics, 
+                                SnLyricsDuration);
+            choicemade = true;
+        }
+        else if(!choice1made){
             lcd.clear();
             lcd.print("Invalid Option");
             delay(2000);
             lcd.clear();
             playMenu();
         }
+        input = "";
     }
+
 
     if (playMusic) {
         if (currentTime - lastLyricsChangeTime >= currentDisplayInterval && lyricsIndex < lyricsCount) {
@@ -162,20 +181,24 @@ void loop() {
                         lastActiveLED = ledBlue;
                         break;
                     case NOTE_D4:
+                    case NOTE_D5:
                         digitalWrite(ledYellow, LOW);
                         lastActiveLED = ledYellow;
                         break;
                     case NOTE_F4:
+                    case NOTE_B4:
                         digitalWrite(ledRed, LOW);
                         lastActiveLED = ledRed;
                         break;
                     case NOTE_G4:
                     case NOTE_E4:
+                    case NOTE_E5:
                         digitalWrite(ledGreen, LOW);
                         lastActiveLED = ledGreen;
                         break;
                     case NOTE_A4:
                     case NOTE_AS4:
+                    case NOTE_F5:
                         digitalWrite(ledWhite, LOW);
                         lastActiveLED = ledWhite;
                         break;
@@ -224,6 +247,8 @@ void loop() {
             lcd.clear();
             playMusic = false;
             playMenu();
+            choicemade == false;
+            choice1made = false;
         }
     }
 }
@@ -247,7 +272,7 @@ void playBass(long halfPeriod, int buzzerPin) {
 
 void playMenu() {
     lcd.setCursor(0, 0);
-    lcd.print("1 = HBD 2 = NS");
+    lcd.print("1 = HBD 2 = SN");
 }
 
 void setVariablesToPlay(const int length, const int melodyArray[], const int melodyDurArray[], const int bassArray[], 
@@ -255,7 +280,7 @@ void setVariablesToPlay(const int length, const int melodyArray[], const int mel
                         const int lyricDurArray[]) {
     for(int i = 0; i < lyricCount; i++) {
                 lyrics[i] = lyricArray[i];
-                lyricsDisplayDuration[i] = pgm_read_words(&lyricDurArray[i]);
+                lyricsDisplayDuration[i] = pgm_read_word(&lyricDurArray[i]);
             }
     
     for (int i = 0; i < length; i++) {
@@ -273,6 +298,13 @@ void setVariablesToPlay(const int length, const int melodyArray[], const int mel
             melodyNoteIndex = 0;
             bassNoteIndex = 0;
             lyricsIndex = 0;
+}
+
+void enterName() {
+    lcd.clear();
+    lcd.print("Enter Name: ");
+    lcd.setCursor(0, 1);
+    lcd.print("MAX 10 CHAR");
 }
 
 /*
