@@ -117,17 +117,7 @@ const int SnBassDurations[] PROGMEM = {
 
   2, 4,
   2, 8,
-  2,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
+  2
 };
 
 const int SnDurations[] PROGMEM = {

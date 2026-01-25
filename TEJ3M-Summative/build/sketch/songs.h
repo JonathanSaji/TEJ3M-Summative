@@ -53,8 +53,8 @@ const int SnNoteDurationSignature = 2500;
 const int SnLyricsCount = 14;
 String SnLyrics[SnLyricsCount] = { "Silent night", "holy night",
 "All is calm", "all is bright","Round yon Virgin", "Mother and Child",
-"Holy Infant so", "tender and mild","Sleep in heavenly", "peace","Sleep'n heavenly", "peace",
-"Sleep in heavenly", "peace"};
+"Holy Infant so", "tender and mild","Sleep'n heavenly", "peace","Sleep'n heavenly", "peace",
+"Sleep'n heavenly", "peace"};
 
 
 
@@ -118,17 +118,7 @@ const int SnBassDurations[] PROGMEM = {
 
   2, 4,
   2, 8,
-  2,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
-  1,
+  2
 };
 
 const int SnDurations[] PROGMEM = {
