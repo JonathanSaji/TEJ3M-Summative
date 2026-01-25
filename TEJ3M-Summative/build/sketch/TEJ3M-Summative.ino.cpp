@@ -378,7 +378,5 @@ void setVariablesToPlay(const int length, const int melodyArray[], const int mel
   lyricsIndex = 0;
   
   // Initialize first interval
-  if(lyricsCount > 0) {
-      currentDisplayInterval = lyricsDisplayDuration[0];
-  }
+      currentDisplayInterval = 0;
 }
