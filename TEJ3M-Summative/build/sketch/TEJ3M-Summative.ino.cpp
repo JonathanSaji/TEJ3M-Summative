@@ -23,15 +23,15 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 // Buzzer Pins
-const int melodyBuzzer = 7;
-const int bassBuzzer   = 8;
+#define melodyBuzzer 7
+#define bassBuzzer   8
 
-// LED Pins (Active Low Configuration: LOW = ON)
-const int ledBlue  = 6;
-const int ledYellow= 5;
-const int ledRed   = 4;
-const int ledGreen = 3;
-const int ledWhite = 2;
+// LED Pins (Active Low Configuration: LOW = ON
+#define ledBlue 6
+#define ledYellow 5
+#define ledRed   4
+#define ledGreen 3
+#define ledWhite 2
 
 // --- Global Timing Variables ---
 unsigned long currentTime;
