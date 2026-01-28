@@ -30,7 +30,7 @@ Designed with memory optimization in mind, this project utilizes `PROGMEM` to st
 | Component | Pin / Connection | Description |
 | --- | --- | --- |
 | **Melody Buzzer** | Digital 7 | Main vocal track |
-| **Bass Buzzer** | Digital 9 | Bass/Rhythm track |
+| **Bass Buzzer** | Digital 8 | Bass/Rhythm track |
 | **LCD Display** | SDA / SCL | I2C Data lines |
 | **LED White** | Digital 2 | High Notes (A/A#) |
 | **LED Green** | Digital 3 | Mid-High Notes (G/E) |
