@@ -10,8 +10,11 @@
  * - Dual-buzzer output (Melody + Bass) using manual PWM for polyphony.
  * - Synchronized LED visual effects.
  * - I2C LCD lyric display with non-blocking staggered scrolling.
+ * 
+ * Github : https://github.com/JonathanSaji/TEJ3M-Summative
  */
 
+ 
 #include <pitches.h>
 #include <LiquidCrystal_I2C.h>
 #include <avr/pgmspace.h>
