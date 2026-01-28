@@ -97,9 +97,9 @@ void playMelody(long halfPeriod, int buzzerPin);
 void playBass(long halfPeriod, int buzzerPin);
 #line 316 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playMenu();
-#line 321 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 323 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void enterName();
-#line 332 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 334 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setVariablesToPlay(const int length, const int melodyArray[], const int melodyDurArray[], const int bassArray[], const int bassDurArray[], const int durationSignature, const int lyricCount, const String lyricArray[], const int lyricDurArray[]);
 #line 88 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setup() {
@@ -333,6 +333,8 @@ void playBass(long halfPeriod, int buzzerPin) {
 void playMenu() {
   lcd.setCursor(0, 0);
   lcd.print("1 = HBD 2 = SN");
+  lcd.setCursor(0, 1);
+  lcd.print("Select Song:");
 }
 
 void enterName() {

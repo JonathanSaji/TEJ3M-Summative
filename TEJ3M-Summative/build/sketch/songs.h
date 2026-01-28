@@ -30,7 +30,7 @@ const int happybirthdayLyricsDuration[HBDlyricsCount] PROGMEM = {1000,1000,1000,
 
 // NEVER GONNA GIVE YOU UP SONG DATA
 // Melody for "Never Gonna Give You Up" --CREATED BY AI--
-const int Snlength = 47;
+const int Snlength = 46;
 const int Snnotes[] PROGMEM = {
   NOTE_G4, NOTE_A4, NOTE_G4, NOTE_E4,
   NOTE_G4, NOTE_A4, NOTE_G4, NOTE_E4,
@@ -46,19 +46,18 @@ const int Snnotes[] PROGMEM = {
   NOTE_C5, NOTE_E5,
   NOTE_C5, NOTE_G4, NOTE_E4,
   NOTE_G4, NOTE_F4, NOTE_D4,
-  NOTE_C4, NOTE_C4
+  NOTE_C4
 };
 
 const int SnNoteDurationSignature = 2500;
 const int SnLyricsCount = 14;
 String SnLyrics[SnLyricsCount] = { "Silent night", "holy night",
 "All is calm", "all is bright","Round yon Virgin", "Mother and Child",
-"Holy Infant so", "tender and mild","Sleep'n heavenly", "peace","Sleep'n heavenly", "peace",
-"Sleep'n heavenly", "peace"};
+"Holy Infant so", "tender and mild","Sleep'n heavenly", "peace","Sleep'n heavenly", "peace"};
 
 
 
-const int SnLyricsDuration[SnLyricsCount] PROGMEM = {1000,1000,1000,2000,2500,2000,2000,2000,1000,1000,1000,1000,1000,1000};
+const int SnLyricsDuration[SnLyricsCount] PROGMEM = {1000,1000,1000,2000,2500,2000,2000,2000,1000,1000,2000,1000,1000,1000};
 // Bass line for new song - complements "Never Gonna Give You Up"
 
 //Given by AI
@@ -91,8 +90,7 @@ const int SnBassNotes[] PROGMEM = {
   NOTE_C3, NOTE_E3, NOTE_G3,
   // Peace (G Major Dominant)
   NOTE_G3, NOTE_G3, NOTE_G3,
-  // Ending (C Major)
-  NOTE_C3, NOTE_C3
+  NOTE_C3
 };
 
 const int SnBassDurations[] PROGMEM = {
@@ -118,7 +116,10 @@ const int SnBassDurations[] PROGMEM = {
 
   2, 4,
   2, 8,
-  2
+  2,2, 2,
+  4, 4, 4,
+  4, 8, 4,
+  2, 
 };
 
 const int SnDurations[] PROGMEM = {
@@ -136,5 +137,5 @@ const int SnDurations[] PROGMEM = {
   2, 2,
   4, 4, 4,
   4, 8, 4,
-  2, 1
+  2, 
 };

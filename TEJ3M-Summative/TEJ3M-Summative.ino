@@ -316,6 +316,8 @@ void playBass(long halfPeriod, int buzzerPin) {
 void playMenu() {
   lcd.setCursor(0, 0);
   lcd.print("1 = HBD 2 = SN");
+  lcd.setCursor(0, 1);
+  lcd.print("Select Song:");
 }
 
 void enterName() {
