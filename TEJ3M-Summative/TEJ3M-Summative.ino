@@ -75,10 +75,10 @@ int songLength = 0;
 
 // Buffers for Song Data (RAM)
 // Note: Actual data is read from PROGMEM (pgm_read_word) into these arrays
-int melodyNotes[50]     = {REST};
-int melodyDurations[50] = {REST};
-int bassDurations[50]   = {REST};
-int bassNotes[50]       = {REST};
+int melodyNotes[50] PROGMEM = {REST};
+int melodyDurations[50] PROGMEM= {REST};
+int bassDurations[50] PROGMEM  = {REST};
+int bassNotes[50] PROGMEM = {REST};
 int noteDurationSignature = 0;
 
 // Serial Menu State
@@ -250,10 +250,9 @@ void loop() {
         digitalWrite(bassBuzzer, LOW);
 
         // Set note duration
-        melodyNoteEndTime = currentTime + (noteDurationSignature / melodyDurations[melodyNoteIndex]);
+        melodyNoteEndTime = currentTime + (noteDurationSignature / pgm_read_word(&melodyDurations[melodyNoteIndex]));
         melodyNoteActive = true;
-
-        bassNoteEndTime = currentTime + (noteDurationSignature / bassDurations[melodyNoteIndex]);
+        bassNoteEndTime = currentTime + (noteDurationSignature / pgm_read_word(&bassDurations[melodyNoteIndex]));
         bassNoteActive = true;
       }
 
