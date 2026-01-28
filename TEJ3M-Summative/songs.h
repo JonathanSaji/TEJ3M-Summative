@@ -56,7 +56,7 @@ String SnLyrics[SnLyricsCount] = { "Silent night", "holy night",
 
 
 
-const int SnLyricsDuration[SnLyricsCount] PROGMEM = {1000,1000,1000,2000,2500,2000,2000,2000,1000,1000,2000,1000,1000,1000};
+const int SnLyricsDuration[SnLyricsCount] PROGMEM = {1000,1000,1000,2000,2500,2000,2000,2000,2000,1000,2000,1000,1000,1000};
 // Bass line for new song - complements "Never Gonna Give You Up"
 
 //Given by AI

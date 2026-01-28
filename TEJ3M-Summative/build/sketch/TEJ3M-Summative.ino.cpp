@@ -90,15 +90,15 @@ bool choice1made = false;
 void setup();
 #line 106 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void loop();
-#line 265 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 266 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playMelody(long halfPeriod, int buzzerPin);
-#line 273 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 274 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playBass(long halfPeriod, int buzzerPin);
-#line 282 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 283 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void playMenu();
-#line 289 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 290 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void enterName();
-#line 296 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
+#line 297 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setVariablesToPlay(const int length, const int melodyArray[], const int melodyDurArray[], const int bassArray[], const int bassDurArray[], const int durationSignature, const int lyricCount, const String lyricArray[], const int lyricDurArray[]);
 #line 87 "C:\\Users\\Jonathan\\Documents\\TEJ3M-Summative\\TEJ3M-Summative\\TEJ3M-Summative.ino"
 void setup() {
@@ -222,6 +222,7 @@ void loop() {
       if (!melodyNoteActive) {
         if (lastActiveLED != -1) {
           digitalWrite(lastActiveLED, HIGH);
+          delay(10);//slight delay to notice note change
         }
 
         // LED Visualizer Logic

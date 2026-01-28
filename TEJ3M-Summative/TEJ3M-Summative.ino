@@ -205,6 +205,7 @@ void loop() {
       if (!melodyNoteActive) {
         if (lastActiveLED != -1) {
           digitalWrite(lastActiveLED, HIGH);
+          delay(10);//slight delay to notice note change
         }
 
         // LED Visualizer Logic
