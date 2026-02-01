@@ -109,6 +109,12 @@ Feel free to fork this repository and add your own songs! To add a song, you sim
 2. Add the lyrics array.
 3. Update the switch case in the main loop to handle the new selection.
 
+## PICTURES
+![IMG_0048](https://github.com/user-attachments/assets/648c33c4-7e92-4766-8243-57ff12ca07b8)
+![IMG_0047](https://github.com/user-attachments/assets/3b9b9105-1874-4948-b08f-a9c7179e1b92)
+
 ## 📄 License
 
 This project is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
+
+
